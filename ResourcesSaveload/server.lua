@@ -17,8 +17,9 @@
     fileWrite(txt, ""..text.." \n <resource src='"..resourceName.."' startup='1' protected='0' />" )
     fileFlush(txt)
      
+    end   
     end
-    end
+    fileClose(txt)
     end
      
      
