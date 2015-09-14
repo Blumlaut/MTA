@@ -19,7 +19,7 @@
      
     end   
     end
-    fileClose(txt)
+    fileClose(txt) -- untested!
     end
      
      
