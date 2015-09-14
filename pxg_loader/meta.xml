@@ -2,6 +2,7 @@
   <info author="BeaTzZ" version="0.8" name="Skin Downlaoder" description="Downloads Skins" type="misc" />
 	<script src="a_loader.lua" type="client" />
 	
+	<!-- be sure to add your .dff and .txds here -->
 	<file src="2.dff" download="false" />
 	<file src="2.txd" download="false" />
 
