@@ -14,3 +14,6 @@ http://forum.mtasa.com/viewtopic.php?f=108&t=92312
 
 medicalcentre:
 Script that creates hospital around the map, nothing Special.
+
+addon_dayzsafezone:
+SafeZone for MTA:DayZ
