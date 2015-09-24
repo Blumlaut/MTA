@@ -1,5 +1,5 @@
 safezone = createColSphere(2090.75049,  -112.47958, 7.04545, 90, 10, 10)
-
+setElementData(safezone, "safezone", true )
 
 setTimer(function()
 peds = getElementsWithinColShape(safezone, "ped")
