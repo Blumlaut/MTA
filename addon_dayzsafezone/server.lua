@@ -15,15 +15,24 @@ setElementData(createColSphere(fx,fy,fz,fradius), "issafezone", true)
 end
 
 
-
-
 setTimer(function()
-peds = getElementsWithinColShape(safezone, "ped")
-for theKey,thePed in ipairs(peds) do        
-	if getElementData(thePed, "zombie") then
-	killPed(thePed)
 
-end
+shapes = getElementsByType("colshape")
+
+for theKey,theShape in ipairs(shapes) do
+ 
+	if getElementData(theShape, "issafezone") then
+
+	peds = getElementsWithinColShape(theShape, "ped")
+
+		for theKey,thePed in ipairs(peds) do        
+
+			if getElementData(thePed, "zombie") then
+	
+			killPed(thePed)
+			end
+		end
+	end
 end
 end, 30000, 0 )
 
