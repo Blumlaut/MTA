@@ -1,7 +1,7 @@
 
 <meta>
     <info type="script" version="1.0.0"></info>
-    <file src="safezone.xml" ></map>
+        <file src="safezone.xml" ></file>
 	<script src="server.lua" type="server"></script>
 	<script src="client.lua" type="client"></script>
     <script src="mapEditorScriptingExtension_s.lua" type="server"></script>
