@@ -1,14 +1,16 @@
-
+setTimer(function()
 if useDefaultSafeZone == 1 then
+outputChatBox("Beh", root)
 safezone = createColSphere(2090.75049,  -112.47958, 7.04545, 90)
 setElementData(safezone, "issafezone", true )
 
-	node = getResourceConfig ( "safezone.xml" )
+	node = xmlLoadFile ( "safezone.xml" )
 	if ( node ) then
 		loadMapData ( node, getRootElement() )
 		xmlUnloadFile ( node )
 	end
 end
+end, 5000, 1)
 
 function createSafeZone(fx,fy,fz,fradius)
 setElementData(createColSphere(fx,fy,fz,fradius), "issafezone", true)
