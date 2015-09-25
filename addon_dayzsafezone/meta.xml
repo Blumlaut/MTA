@@ -1,9 +1,7 @@
+
 <meta>
-    <info type="map" version="1.0.0"></info>
-    <map src="dayZSafeZone.map" dimension="0"></map>
-    <settings>
-        <setting name="#useLODs" value="[ false ]"></setting>
-    </settings>
+    <info type="script" version="1.0.0"></info>
+    <file src="safezone.xml" ></map>
 	<script src="server.lua" type="server"></script>
 	<script src="client.lua" type="client"></script>
     <script src="mapEditorScriptingExtension_s.lua" type="server"></script>
