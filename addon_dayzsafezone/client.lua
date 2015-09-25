@@ -23,3 +23,8 @@ toggleControl("vehicle_fire", true)
 end
 addEvent("disableSafeClient", true)
 addEventHandler("disableSafeClient", root, disableSafeCLIENT)
+
+if devmode == 1 then
+setDevelopmentMode(true)
+
+end
