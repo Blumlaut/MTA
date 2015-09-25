@@ -1,5 +1,12 @@
-safezone = createColSphere(2090.75049,  -112.47958, 7.04545, 90, 10, 10)
+safezone = createColSphere(2090.75049,  -112.47958, 7.04545, 90)
 setElementData(safezone, "safezone", true )
+
+function createSafeZone(fx,fy,fz,fradius)
+setElementData(createColSphere(fx,fy,fz,fradius), "safezone", true)
+end
+
+
+
 
 setTimer(function()
 peds = getElementsWithinColShape(safezone, "ped")
@@ -17,7 +24,7 @@ end, 30000, 0 )
 
 
 function onSafeEnable(thePlayer, matchingdim)
-if getElementType ( thePlayer ) == "player" then 
+if getElementType ( thePlayer ) == "player" and getElementData(source, "safezone") then 
 playerName = getPlayerName(thePlayer)
 outputChatBox("You entered the Safezone, report griefers at our Forums or Ingame!", thePlayer, 255, 255, 255, false)
 
@@ -37,11 +44,11 @@ end
 end
 
 end
-addEventHandler("onColShapeHit", safezone, onSafeEnable)
+addEventHandler("onColShapeHit", root, onSafeEnable)
 
 
 function onSafeDisable(thePlayer, matchingdim)
-   if getElementType ( thePlayer ) == "player" then
+   if getElementType ( thePlayer ) == "player" and getElementData(source, "safezone") then 
    playerName = getPlayerName(thePlayer)
 setElementData(thePlayer, "safezone", "false")
    outputChatBox("You left the Safezone, Watch out for Yourself!", thePlayer, 255, 255, 255, false)
