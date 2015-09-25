@@ -28,5 +28,7 @@ addEventHandler("disableSafeClient", root, disableSafeCLIENT)
 
 if devmode == 1 then
 setDevelopmentMode(true)
+else
+setDevelopmentMode(false)
 
 end
