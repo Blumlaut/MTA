@@ -1,3 +1,13 @@
+25/09/2015
+
+New Update Released.
+[NEW] Export Function: createSafeZone
+[FIX] Fixed Shooting using TAB in the Safezone
+[NEW] Added Settings
+[NEW] Made SafeZone Map Optional ( Settings )
+
+
+
 Github 24/09/2015
 
 Preperations for a new update
