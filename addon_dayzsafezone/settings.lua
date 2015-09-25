@@ -1,2 +1,2 @@
-devmode = 1
+devmode = 0
 useDefaultSafeZone = 1
