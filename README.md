@@ -17,3 +17,6 @@ Script that creates hospital around the map, nothing Special.
 
 addon_dayzsafezone:
 SafeZone for MTA:DayZ, see: https://mta-dayz.org/forum/index.php?topic=239.msg904
+
+addon_deadstreets:
+https://mta-dayz.org/forum/index.php?topic=245.msg919
