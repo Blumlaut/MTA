@@ -3,4 +3,7 @@
   
   <script src="server.lua" type="server" />
   <file src="resources.xml" download="false" />
+  <aclrequest>
+    <right name="function.startResource" access="true"></right>
+  </aclrequest>
 </meta>
