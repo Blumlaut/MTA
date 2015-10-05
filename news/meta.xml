@@ -1,0 +1,10 @@
+<meta>
+<script src="news_c.lua" type="client" />
+<script src="news_s.lua" type="server" />
+<file src="news.txt" />
+
+	<aclrequest>
+        <right name="function.restartResource" access="true"></right>
+	</aclrequest>
+	
+</meta>
