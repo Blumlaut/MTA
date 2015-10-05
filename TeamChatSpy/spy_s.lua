@@ -6,8 +6,8 @@ if getTeamName(getPlayerTeam(source)) ~= "Staff" then -- replace "STAFF" With th
 players = getElementsByType("player")
 tcr,tcg,tcb = getTeamColor(getPlayerTeam(source))
 for theKey,thePlayer in ipairs(players) do -- basic loop
-if ( hasObjectPermissionTo ( thePlayer, "command.SuperSecretAdmin",false ) ) then -- double checking because mta logic
-if hasObjectPermissionTo(thePlayer, "command.SuperSecretAdmin",true) then -- double checking because mta logic
+if ( hasObjectPermissionTo ( thePlayer, "function.banIP",false ) ) then -- double checking because mta logic
+if hasObjectPermissionTo(thePlayer, "function.banIP",true) then -- double checking because mta logic
 
 if hisTeam == getPlayerTeam(thePlayer) then
 return
