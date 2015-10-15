@@ -29,11 +29,12 @@ for theKey,theShape in ipairs(shapes) do
 		for theKey,thePed in ipairs(peds) do        
 
 			if getElementData(thePed, "zombie") then
-	
+			if thePed then
 			killPed(thePed)
 			end
 		end
 	end
+end
 end
 end, 30000, 0 )
 
