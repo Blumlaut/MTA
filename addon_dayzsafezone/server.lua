@@ -29,9 +29,12 @@ for theKey,theShape in ipairs(shapes) do
 		for theKey,thePed in ipairs(peds) do        
 
 			if getElementData(thePed, "zombie") then
-			if thePed then
-			killPed(thePed)
-			end
+				
+				setElementPosition(thePlayer, 0, 0, -10)
+				setTimer(function()
+				killPed(thePlayer)
+				end, 5000, 1 )
+				
 		end
 	end
 end
