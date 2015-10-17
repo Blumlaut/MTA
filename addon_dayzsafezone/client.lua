@@ -1,5 +1,6 @@
 function enableSafeCLIENT()
 playerBlood = getElementData(localPlayer, "blood")
+setElementData(localPlayer, "god", true)
 playerTimer = setTimer(function()
 
 toggleControl( "fire", false)
@@ -18,6 +19,7 @@ addEventHandler("enableSafeClient", root, enableSafeCLIENT)
 function disableSafeCLIENT()
 killTimer(playerTimer)
 toggleControl("fire", true)
+setElementData(localPlayer, "god", false)
 toggleControl("zoom_in", true)
 toggleControl("aim_weapon", true)
 toggleControl("vehicle_fire", true)
@@ -32,3 +34,12 @@ else
 setDevelopmentMode(false)
 
 end
+
+function checkGodMode()
+if getElementData(localPlayer, "god") then
+  outputChatBox("God Active")
+else
+  outputChatBox("Got Inactive")
+  end
+addCommandHandler("godCheck", checkGodMode)
+
