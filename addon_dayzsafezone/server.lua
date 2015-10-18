@@ -47,13 +47,13 @@ end, 30000, 0 )
 
 
 function onSafeEnable(thePlayer, matchingdim)
-if getElementType ( thePlayer ) == "player" and getElementData(source, "issafezone") then 
+if getElementType ( thePlayer ) == "player" and getElementData(source, "issafezone") then
+
 playerName = getPlayerName(thePlayer)
 outputChatBox("You entered the Safezone, report griefers at our Forums or Ingame!", thePlayer, 255, 255, 255, false)
 
 setElementData(thePlayer, "safezone", "true")
 
---outputChatBox(playerTimer, thePlayer)
 
 triggerClientEvent(thePlayer, "enableSafeClient", getResourceRootElement(getThisResource()))
 else 
