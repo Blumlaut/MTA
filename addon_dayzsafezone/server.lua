@@ -1,9 +1,9 @@
 setTimer(function()
 if useDefaultSafeZone == 1 then
-safezone = createColSphere(2090.75049,  -112.47958, 7.04545, 90)
+safezone = createColSphere(safezoneX,  safezoneY, safezoneZ, safezoneSize)
 setElementData(safezone, "issafezone", true )
 
-	node = xmlLoadFile ( "safezone.xml" )
+	node = xmlLoadFile ( safeZoneXML )
 	if ( node ) then
 		loadMapData ( node, getRootElement() )
 		xmlUnloadFile ( node )
