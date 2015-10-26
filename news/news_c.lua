@@ -42,12 +42,12 @@ end
 end
 
 function showEditNews()
-
+if isObjectInACLGroup(localPlayer, aclGetGroup("Admin") ) then
 guiSetVisible(editnewsgui,true)
 
 showCursor(true,true)
 addEventHandler ( "onClientGUIClick", confirmnewsbtn, setNews, false )
-
+end
 end
 
 
