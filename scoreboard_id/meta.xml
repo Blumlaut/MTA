@@ -1,0 +1,8 @@
+<meta>
+	<script src="playerid.lua" type="server" />
+	<export function="isIDAvailable" type="server"/>
+	<export function="getPlayerFromPartialName" type="server"/>
+	<export function="getPlayerFromID" type="server"/>
+	<export function="getPlayer" type="server"/>
+	<export function="isIDAvailable" type="server"/>
+</meta>
