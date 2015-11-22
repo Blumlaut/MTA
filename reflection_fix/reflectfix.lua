@@ -1,15 +1,15 @@
-local lightRadius = 3 * getElementRadius(localPlayer)
-local light1 = createLight(0, 0,0,0, lightRadius, 140, 140, 140, 0, 0, 0,true )
-local light2 = createLight(0, 0,0,0, lightRadius, 140, 140, 140, 0, 0, 0,true )
-local light3 = createLight(0, 0,0,0, lightRadius, 140, 140, 140, 0, 0, 0,true )
-local light4 = createLight(0, 0,0,0, lightRadius, 140, 140, 140, 0, 0, 0,true )
-local light5 = createLight(0, 0,0,0, lightRadius, 140, 140, 140, 0, 0, 0,true )
+local lightRadius = 3 * getElementRadius(localPlayer) -- dont touch this
+local lightBrightness = 140 -- the brightness, 0 = Black, 255 = Completely white, see code below 
+local light1 = createLight(0, 0,0,0, lightRadius, lightBrightness, lightBrightness, lightBrightness, 0, 0, 0,true )
+local light2 = createLight(0, 0,0,0, lightRadius, lightBrightness, lightBrightness, lightBrightness, 0, 0, 0,true )
+local light3 = createLight(0, 0,0,0, lightRadius, lightBrightness, lightBrightness, lightBrightness, 0, 0, 0,true )
+local light4 = createLight(0, 0,0,0, lightRadius, lightBrightness, lightBrightness, lightBrightness, 0, 0, 0,true )
+local light5 = createLight(0, 0,0,0, lightRadius, lightBrightness, lightBrightness, lightBrightness, 0, 0, 0,true )
 
 
  
 
 local function updateLightPositions()
-if isPedInVehicle(localPlayer) then
 theVeh = getPedOccupiedVehicle(localPlayer)
 if theVeh then
 vx,vy,vz = getElementPosition(theVeh)
@@ -24,7 +24,5 @@ attachElements(light5, theVeh, 0, -3, 0)
 --setElementPosition(light4, vx,vy+3,vz)
 --setElementPosition(light5, vx,vy-3,vz)
 end
-
 end
-end
-addEventHandler("onClientRender", root, updateLightPositions)
+addEventHandler("onClientVehicleEnter", root, updateLightPositions)
