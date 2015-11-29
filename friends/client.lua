@@ -1,5 +1,3 @@
-DXDRAWMSG = "PLAYERNAME is now Online"
-DXDRAWICON = "on"
 addEventHandler("onClientResourceStart", resourceRoot,
     function()
 	
@@ -250,8 +248,8 @@ end
 
 
 local screenW, screenH = guiGetScreenSize()
-DXDRAWMSG = "PLAYERNAME is now Online"
-DXDRAWICON = "online"
+DXDRAWMSG = ""
+DXDRAWICON = ""
     function dxDrawMSG()
         dxDrawLine((screenW * 0.7460) - 1, (screenH * 0.0898) - 1, (screenW * 0.7460) - 1, screenH * 0.1146, tocolor(0, 0, 0, 255), 1, false)
         dxDrawLine(screenW * 0.9780, (screenH * 0.0898) - 1, (screenW * 0.7460) - 1, (screenH * 0.0898) - 1, tocolor(0, 0, 0, 255), 1, false)
