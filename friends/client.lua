@@ -39,9 +39,10 @@ addEventHandler("onClientResourceStart", resourceRoot,
 		
 		
 		
-		drawMessage("Friendslist Loaded!", "online", 18000)
+		drawMessage("Friendslist Loaded! Access it using F4", "online", 18000)
+
 		
-		
+		bindKey ("F4", "down", showFriendGUI )
 		
 		
     end
@@ -129,6 +130,10 @@ thecount = thecount + 1
   local friendname  = xmlNodeGetValue(xmlFindChild(friendnode, "name",0))
   local row = guiGridListAddRow(gridlist)
   guiGridListSetItemText(gridlist, row, collumn, friendname, false,false)
+  if getPlayerFromName(friendname) then
+  guiGridListSetItemColor(gridlist,row,collumn, 0, 255, 0)
+  end
+  
   
   end
 xmlUnloadFile(xml)
@@ -158,6 +163,7 @@ end
 end
 addCommandHandler("friends",showFriendGUI)
 
+
 function removeFriend_func()
 if not guiGridListGetSelectedItem(gridlist) then return end
 local selectedItem = guiGridListGetSelectedItem(gridlist)
@@ -184,8 +190,8 @@ else
 local friend = getPlayerFromName(guiGetText(friendName_edit))
 xml = xmlLoadFile("friends.xml")
 xmlchild = xmlCreateChild(xml, "friend" )
-xmlserial = xmlCreateSubNode(xmlchild, "serial")
-xmlname = xmlCreateSubNode(xmlchild, "name")
+xmlserial = xmlCreateChild(xmlchild, "serial")
+xmlname = xmlCreateChild(xmlchild, "name")
 xmlNodeSetValue(xmlname, guiGetText(friendName_edit))
 triggerServerEvent("clientGetPlayerSerial", localPlayer, localPlayer, friend)
 guiSetVisible(addFriend_main,false)
