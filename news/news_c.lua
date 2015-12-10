@@ -42,12 +42,16 @@ end
 end
 
 function showEditNews()
-if isObjectInACLGroup(localPlayer, aclGetGroup("Admin") ) then
+
+loadedFile = fileOpen("news.txt")
+cnews = fileRead(loadedFile, 99999 )
+fileClose(loadedFile)
+guiSetText(newsEdit,cnews)
 guiSetVisible(editnewsgui,true)
 
 showCursor(true,true)
 addEventHandler ( "onClientGUIClick", confirmnewsbtn, setNews, false )
-end
+
 end
 
 

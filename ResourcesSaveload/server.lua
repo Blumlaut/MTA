@@ -1,8 +1,9 @@
      
      
+	 
+if not xmlLoadFile("resources.xml") then  xml = xmlCreateFile("resources.xml", "root") xmlSaveFile(xml) xmlUnloadFile(xml) end
     function writeRunningResources(player, command, ctconfig)
     if ctconfig == "true" then
-if hasObjectPermissionTo(player, "function.kickPlayer") then
     if not fileExists("mtaserver.txt") then txt = fileCreate("mtaserver.txt") fileClose(txt) end
     resourceTable = getResources()
      
@@ -19,13 +20,17 @@ if hasObjectPermissionTo(player, "function.kickPlayer") then
     fileFlush(txt)
      
     end   
-end
-end
+    end
     fileClose(txt) -- untested!
     end
      
      
-
+     
+     
+     
+     
+     
+     
     xmlfile = xmlLoadFile("resources.xml")
     resourceTable = getResources()
     for resourceKey, resourceValue in ipairs(resourceTable) do
@@ -37,20 +42,19 @@ end
     end
     outputChatBox("Wrote to XML!", root, 255, 0, 0, false)
     end
-    addCommandHandler("getRunningResources", writeRunningResources, false,false)
+    addCommandHandler("getRunningResources", writeRunningResources, true)
      
      
     function loadResources()
-     if hasObjectPermissionTo(player, "function.kickPlayer") then
     outputChatBox("Starting Resources, this can take a while...",root, 255, 0, 0, false)
     local rootNode = xmlLoadFile ( "resources.xml" )
     local nums = xmlNodeGetChildren(rootNode)
     for i,node in ipairs(nums) do      
     local resource = xmlNodeGetValue ( node )
-    startResource( getResourceFromName(resource), true)
-end
-end
+     startResource( getResourceFromName(resource), true) 
+	outputChatBox("Resource : "..resource.." started") 
     end
-    addCommandHandler("loadResources", loadResources, false,false)
+    end
+    addCommandHandler("loadResources", loadResources, true)
      
      
