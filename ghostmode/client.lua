@@ -14,7 +14,6 @@ function toggleGhostMode(obj,mode)
 	end
 	if mode == false then
 		for theKey,theVehicle in ipairs(getElementsByType("vehicle")) do
-		outputDebugString("br")
 			setElementCollidableWith(obj, theVehicle,true)
 			setElementAlpha(obj, 255)
 		end
