@@ -25,8 +25,18 @@ end
 addCommandHandler("ghost",GhostModeCMD,false,false)
 
 
+function requestGhostList(player)
+
+triggerClientEvent(player,"recieveGhostList",resourceRoot,ghostTable)
+
+end
+addEvent("requestGhostList",true)
+addEventHandler("requestGhostList",root,requestGhostList)
+
+
 function toggleGhostModeS(obj,mode)
-	triggerClientEvent(root, "toggleGhostMode",resourceRoot, obj,mode)
+if not obj then return end
+	triggerClientEvent(root, "toggleGhostMode",resourceRoot,obj,mode)
 end
 
 
