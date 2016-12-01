@@ -7,8 +7,8 @@ localPlayer = getLocalPlayer()
 
 
 GUIEditor = {
-    dlwin = {},
-    dllabel = {}
+	dlwin = {},
+	dllabel = {}
 }
 
 local screenWidth, screenHeight = guiGetScreenSize ( )
@@ -17,73 +17,73 @@ local screenWidth, screenHeight = guiGetScreenSize ( )
 
 rroot = getResourceRootElement(getThisResource())
 addEventHandler('onClientResourceStart', rroot,
-    function()
-
+function()
+	
 	downloadTXDs()
-	 
-
-  end
+	
+	
+end
 )
 
 
 
 
 function downloadTXDs( )
-		
-		dlwin = guiCreateWindow(1072, 484, 290, 80, "Phoenix Gaming Downloader V1.2", false)
-        guiWindowSetSizable(dlwin, false)
-
-        dllabel = guiCreateLabel(23, 33, 257, 30, "Waiting..", false, dlwin)
-        sizelabel = guiCreateLabel(5, 53, 93, 20, "", false, dlwin)    
+	
+	dlwin = guiCreateWindow(1072, 484, 290, 80, "Phoenix Gaming Downloader V1.2", false)
+	guiWindowSetSizable(dlwin, false)
+	
+	dllabel = guiCreateLabel(23, 33, 257, 30, "Waiting..", false, dlwin)
+	sizelabel = guiCreateLabel(5, 53, 93, 20, "", false, dlwin) 
 	
 	
 	
 	-- download the skins
-downloadFile("2.txd")     
-downloadFile("2.dff")  
-
+	downloadFile("2.txd") 
+	downloadFile("2.dff") 
+	
 end
 
 
 function replaceTXDs(file, success)
 	if ( source == resourceRoot ) then
-	if ( success ) then
-	
-	guiSetText(dllabel, "Lade: "..file.." " )
-	outputConsole("Downloaded "..file.." ", localPlayer )
-	if ( file == "2.dff" ) then -- be sure to update this line
-	
-	-- Replace the downloaded files
-	
-		txd = engineLoadTXD ( "2.txd")
-       engineImportTXD ( txd, 2)		
-	   dff = engineLoadDFF ( "2.dff", 2)
-       engineReplaceModel ( dff, 2)
-
-	   
-	 
-
-	   
-	   --vanishgui(localPlayer)
-		triggerEvent( "hidedlgui", getLocalPlayer())
-		
+		if ( success ) then
+			
+			guiSetText(dllabel, "Lade: "..file.." " )
+			outputConsole("Downloaded "..file.." ", localPlayer )
+			if ( file == "2.dff" ) then -- be sure to update this line
+				
+				-- Replace the downloaded files
+				
+				txd = engineLoadTXD ( "2.txd")
+				engineImportTXD ( txd, 2)		
+				dff = engineLoadDFF ( "2.dff", 2)
+				engineReplaceModel ( dff, 2)
+				
+				
+				
+				
+				
+				--vanishgui(localPlayer)
+				triggerEvent( "hidedlgui", getLocalPlayer())
+				
+			end
+		else
+			outputChatBox ( "Additional Textures Failed to Download, restarting.." )
+			downloadTXDs()
 		end
-	else
-	outputChatBox ( "Additional Textures Failed to Download, restarting.." )
-	downloadTXDs()
-end
-end	
+	end	
 end
 addEventHandler("onClientFileDownloadComplete", root, replaceTXDs )
 
 
 
 function vanishgui()
-	  	guiSetVisible( dlwin, false )
-		if guiGetVisible( dlwin ) == true then guiSetVisible( dlwin ) end
-		if guiGetVisible( dllabel ) == true then guiSetVisible( dllabel ) end
-		guiSetVisible( dllabel, false )
-		guiSetVisible( sizelabel, false )
+	guiSetVisible( dlwin, false )
+	if guiGetVisible( dlwin ) == true then guiSetVisible( dlwin ) end
+	if guiGetVisible( dllabel ) == true then guiSetVisible( dllabel ) end
+	guiSetVisible( dllabel, false )
+	guiSetVisible( sizelabel, false )
 end
 addEvent("hidedlgui", true )
 
