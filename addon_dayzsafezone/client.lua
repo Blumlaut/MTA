@@ -39,7 +39,7 @@ function checkGodMode()
 	if getElementData(localPlayer, "god") then
 		outputChatBox("God Active")
 	else
-		outputChatBox("Got Inactive")
+		outputChatBox("God Inactive")
 	end
 	addCommandHandler("godCheck", checkGodMode)
 end
