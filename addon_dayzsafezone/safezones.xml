@@ -1,0 +1,6 @@
+<safezones>
+	<safezone x="2090.75049" y="-112.47958" z="7.04545" size="90" mapfile="safezone.xml"  ></safezone>
+	<safezone x="1.75049" y="-4.47958" z="5.04545" size="10" mapfile="safezone.xml"  ></safezone>
+
+
+</safezones>

@@ -1,18 +1,32 @@
 setTimer(function()
-	if useDefaultSafeZone == 1 then
-		safezone = createColSphere(safezoneX, safezoneY, safezoneZ, safezoneSize)
-		setElementData(safezone, "issafezone", true )
-		
-		node = xmlLoadFile ( safeZoneXML )
-		if ( node ) then
-			loadMapData ( node, getRootElement() )
-			xmlUnloadFile ( node )
+	outputChatBox ( "hi", root )
+		safezoneFile = xmlLoadFile ( safeZonesXML )
+		if ( safezoneFile ) then
+			safezoneRoot = xmlFindChild( safezoneFile, "safezones",0 )
+			safezones = xmlNodeGetChildren(safezoneFile)
+			for i,node in ipairs(safezones) do
+				local xCoord = xmlNodeGetAttribute(node, "x")
+				local yCoord = xmlNodeGetAttribute(node, "y")
+				local zCoord = xmlNodeGetAttribute(node, "z")
+				local size = xmlNodeGetAttribute(node, "size")
+				local mapfile = xmlNodeGetAttribute(node, "mapfile")
+				if mapfile == "" then
+					mapfile = false
+				end
+			createSafeZone(xCoord,yCoord,zCoord,size,mapfile)
 		end
 	end
 end, 5000, 1)
 
-function createSafeZone(fx,fy,fz,fradius)
+function createSafeZone(fx,fy,fz,fradius,mapfile)
 	setElementData(createColSphere(fx,fy,fz,fradius), "issafezone", true)
+	if (mapfile) then
+		node = xmlLoadFile ( mapfile )
+		if (node) then
+			loadMapData ( node, getRootElement() )
+			xmlUnloadFile ( node )
+		end
+	end
 end
 
 
