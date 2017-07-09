@@ -1,5 +1,4 @@
 setTimer(function()
-	outputChatBox ( "hi", root )
 		safezoneFile = xmlLoadFile ( safeZonesXML )
 		if ( safezoneFile ) then
 			safezoneRoot = xmlFindChild( safezoneFile, "safezones",0 )
