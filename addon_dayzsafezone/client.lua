@@ -8,7 +8,7 @@ function enableSafeCLIENT()
 		toggleControl( "vehicle_fire", false)
 		toggleControl( "action", false)
 		setElementData(localPlayer, "blood", playerBlood, true)
-	end, 500, 0 )
+	end, 100, 0 )
 	
 	
 	
