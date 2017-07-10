@@ -46,7 +46,9 @@ setTimer(function()
 					
 					setElementPosition(thePed, 0, 0, -10)
 					setTimer(function()
-						killPed(thePed)
+						if thePed then
+							killPed(thePed)
+						end
 					end, 5000, 1 )
 					
 				end
@@ -58,8 +60,11 @@ end, 30000, 0 )
 
 
 function handleModifiedBlood(theData,oldValue)
-	if theData == "blood" and getElementType(source) == "player" and getElementData(source, "god") == true then
-		setElementData(source,blood,oldValue) -- revert player HP to old value
+	if theData == "blood" and getElementType(source) == "player" and getElementData(source, "god") == true and oldValue ~= getElementData(source, theData) then
+		if changingData then return end
+		changingData = true
+		setElementData(source,theData,oldValue) -- revert player HP to old value
+		changingData = false
 	end
 end
 addEventHandler("onElementDataChange", getRootElement(), handleModifiedBlood)

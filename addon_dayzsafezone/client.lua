@@ -1,17 +1,10 @@
 function enableSafeCLIENT()
-	playerBlood = getElementData(localPlayer, "blood")
 	playerTimer = setTimer(function()
-		
 		toggleControl( "fire", false)
 		toggleControl( "zoom_in", false)
 		toggleControl( "vehicle_fire", false)
 		toggleControl( "action", false)
-		--setElementData(localPlayer, "blood", playerBlood, true) -- i never liked how this works, begone bad code!
-	end, 500, 0 )
-	
-	
-	
-	
+	end, 100, 0 )
 end
 addEvent("enableSafeClient", true)
 addEventHandler("enableSafeClient", root, enableSafeCLIENT)
@@ -27,6 +20,7 @@ function disableSafeCLIENT()
 end
 addEvent("disableSafeClient", true)
 addEventHandler("disableSafeClient", root, disableSafeCLIENT)
+
 
 if devmode == 1 then
 	setDevelopmentMode(true)
