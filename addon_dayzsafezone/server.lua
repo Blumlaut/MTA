@@ -57,7 +57,12 @@ end, 30000, 0 )
 
 
 
-
+function handleModifiedBlood(theData,oldValue)
+	if theData == "blood" and getElementType(source) == "player" and getElementData(source, "god") == true then
+		setElementData(source,blood,oldValue) -- revert player HP to old value
+	end
+end
+addEventHandler("onElementDataChange", getRootElement(), handleModifiedBlood)
 
 
 function onSafeEnable(thePlayer, matchingdim)
@@ -70,6 +75,8 @@ function onSafeEnable(thePlayer, matchingdim)
 		
 		
 		triggerClientEvent(thePlayer, "enableSafeClient", getResourceRootElement(getThisResource()))
+		setElementData(thePlayer, "god", true)
+		
 	else 
 		if getElementData(thePlayer, "zombie") then
 			setElementPosition(thePlayer, 0, 0, -10)
@@ -88,6 +95,7 @@ function onSafeDisable(thePlayer, matchingdim)
 	if getElementType ( thePlayer ) == "player" and getElementData(source, "issafezone") then 
 		playerName = getPlayerName(thePlayer)
 		setElementData(thePlayer, "safezone", "false")
+		setElementData(thePlayer, "god", false)
 		outputChatBox("You left the Safezone, Watch out for Yourself!", thePlayer, 255, 255, 255, false)
 		triggerClientEvent(thePlayer, "disableSafeClient", getResourceRootElement(getThisResource()))
 	end
