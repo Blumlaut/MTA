@@ -1,5 +1,5 @@
 <safezones>
-	<safezone x="2090.75049" y="-112.47958" z="7.04545" size="90" mapfile="safezone.xml"  ></safezone>
+	<safezone x="2090.75049" y="-112.47958" z="7.04545" size="90" mapfile="exampleMap.xml"  ></safezone>
 <!-- to add more safezones, just copypaste the line under this and change everything to how you want it, if you want to use no mapfile, keep it empty! -->
 	<safezone x="0" y="0" z="5" size="1" mapfile=""  ></safezone>
 
