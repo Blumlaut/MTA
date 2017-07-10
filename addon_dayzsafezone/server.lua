@@ -15,6 +15,7 @@ setTimer(function()
 			createSafeZone(xCoord,yCoord,zCoord,size,mapfile)
 		end
 	end
+	xmlUnloadFile ( safezoneFile )
 end, 5000, 1)
 
 function createSafeZone(fx,fy,fz,fradius,mapfile)
